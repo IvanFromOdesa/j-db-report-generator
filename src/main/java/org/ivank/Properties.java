@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -98,7 +99,7 @@ public class Properties {
         if (!Objects.equals(rowLimit, "")) {
             toCheck[1] = rowLimit;
         }
-        validateNumber(toCheck);
+        validateNumber(Arrays.stream(toCheck).filter(Objects::nonNull).toArray(String[]::new));
     }
 
     private static void validateBlank(String... properties) {
